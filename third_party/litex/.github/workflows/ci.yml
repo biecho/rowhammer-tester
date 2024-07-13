@@ -1,0 +1,62 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      # Checkout Repository
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup CCache
+        uses: hendrikmuhs/ccache-action@v1.2
+
+      - uses: ghdl/setup-ghdl-ci@master
+        with:
+          backend: llvm
+
+      # Install Tools
+      - name: Install Tools
+        run: |
+          sudo apt-get install wget build-essential python3 ninja-build
+          sudo apt-get install libevent-dev libjson-c-dev flex bison
+          sudo apt-get install libfl-dev libfl2 zlib1g-dev
+          pip3 install setuptools
+          pip3 install requests
+          pip3 install pexpect
+          pip3 install meson
+
+      # Install (n)Migen / LiteX / Cores
+      - name: Install LiteX
+        run: |
+          python3 litex_setup.py --config=full --init --install --user
+
+      # Install GCC Toolchains
+      - name: Install GCC Toolchains
+        run: |
+          sudo python3 litex_setup.py --gcc=riscv
+          sudo python3 litex_setup.py --gcc=openrisc
+          sudo python3 litex_setup.py --gcc=powerpc
+
+      # Build / Install Verilator
+      - name: Build Verilator
+        run: |
+          sudo apt-get install help2man
+          export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
+          git clone https://github.com/verilator/verilator
+          cd verilator
+          autoconf
+          ./configure
+          make -j$(nproc)
+          sudo make install
+
+      # Install Project
+      - name: Install Project
+        run: python3 setup.py develop --user
+
+      # Test
+      - name: Run Tests
+        run: |
+          python3 setup.py test
