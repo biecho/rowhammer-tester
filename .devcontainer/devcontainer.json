@@ -14,7 +14,13 @@
 		// VS Code settings to apply within the container
 		"settings": {
 		  "terminal.integrated.shell.linux": "/bin/bash" // Set the default shell for the integrated terminal to Bash
-		}
+		}, 
+		"extensions": [
+			"ms-azuretools.vscode-docker",
+			"ms-python.python",
+			"ms-vscode.makefile-tools"
+		]
+
 	  }
 	},
 
