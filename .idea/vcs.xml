@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/litedram" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/liteeth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/liteiclink" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/litepcie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/litescope" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/litex" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/litex-boards" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/migen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/openFPGALoader" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/openocd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/openocd/jimtcl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/openocd/src/jtag/drivers/libjaylink" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/openocd/tools/git2cl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/pythondata-cpu-vexriscv_smp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/verilator" vcs="Git" />
+  </component>
+</project>
