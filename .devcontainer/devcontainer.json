@@ -25,7 +25,7 @@
 	},
 
 	// Command to run after the container is created
-	"postCreateCommand": "git submodule update --init --recursive",
+	"postCreateCommand": "echo 'container is ready'",
 
 	// Specifies which user VS Code should use when connecting to the container
 	"remoteUser": "root" // Use the root user for VS Code operations inside the container
